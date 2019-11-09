@@ -2,3 +2,9 @@
 --> circumference of circle = 2*pi*r
 --> area of circle = pi*r*r
 --> volume of cylinder = pi*r*r*h
+--> area of parallelogram = b*h
+--> sum of angle of regular polygon = 180*(number of vertices - 2)
+--> volume of cone 1/3*pi*r*r*h
+--> surface area of cone = pi*r*r+pi*r*sqrt(r*r+h*h)
+--> volume of sphere = 4/3*pi*r*r*r
+--> surface area of sphere = 4*pi*r*r
