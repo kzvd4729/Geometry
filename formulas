@@ -1,0 +1,4 @@
+--> pi = acos(-1.0)
+--> circumference of circle = 2*pi*r
+--> area of circle = pi*r*r
+--> volume of cylinder = pi*r*r*h
