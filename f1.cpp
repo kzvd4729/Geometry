@@ -14,6 +14,7 @@ struct point
   point operator-(point p){return point(x-p.x,y-p.y);}
   point operator*(double d){return point(x*d,y*d);}
   point operator/(double d){return point(x/d,y/d);}
+  double value(){return sqrt(x*x+y*y);}
   double operator*(point p)
   {
     return x*p.x+y*p.y;//0 if vectors are perpendicular;
@@ -23,5 +24,17 @@ struct point
     return x*p.y-y*p.x;//0 if two vectors are same
     //sigbed area of the parallelogram by two vector
     //positive if p is ccw to the point
+  }
+};
+struct line
+{
+  point p,v;//v is vector,going through p;
+  line(){}
+  line(point _p,point _v):p(_p),v(_v){}
+  void makeLine(point p1,point p2){p=p1,v=p2-p1;}
+  double pointDist(point p1)
+  {
+    //area of triangle/base of triangle
+    return (v^(p1-p))/v.value();
   }
 };
