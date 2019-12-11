@@ -15,6 +15,12 @@ struct point
   point operator*(double d){return point(x*d,y*d);}
   point operator/(double d){return point(x/d,y/d);}
   double value(){return sqrt(x*x+y*y);}
+  double dist(point p){return sqrt((x-p.x)*(x-p.x)+(y-p.y)*(y-p.y));}
+  point unit()
+  {
+    //invalid if point is (0,0)
+    double v=value();return point(x/v,y/v);
+  }
   double operator*(point p)
   {
     return x*p.x+y*p.y;//0 if vectors are perpendicular;
@@ -36,5 +42,14 @@ struct line
   {
     //area of triangle/base of triangle
     return (v^(p1-p))/v.value();
+  }
+};
+struct circle
+{
+  double x,y,r;
+  circle(){};circle(double _x,double _y,double _r):x(_x),y(_y),r(_r){}
+  bool pointInCircle(point p)//in or on
+  {
+    return p.dist(point(x,y))<=r;
   }
 };
