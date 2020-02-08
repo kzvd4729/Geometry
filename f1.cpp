@@ -28,8 +28,8 @@ struct point
   double operator^(point p)
   {
     return x*p.y-y*p.x;//0 if two vectors are same
-    //sigbed area of the parallelogram by two vector
-    //positive if p is ccw to the point
+    //signed area of the parallelogram by two vector
+    //positive if p is ccw to the vector
   }
 };
 struct line
