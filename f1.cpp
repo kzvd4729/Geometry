@@ -41,7 +41,7 @@ struct line
   double pointDist(point p1)
   {
     //area of triangle/base of triangle
-    return (v^(p1-p))/v.value();
+    return (v^(p1-p))/v.value();//signed based on cw ans ccw
   }
 };
 struct circle
