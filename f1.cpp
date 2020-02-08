@@ -16,7 +16,7 @@ struct point
   point operator/(double d){return point(x/d,y/d);}
   double value(){return sqrt(x*x+y*y);}
   double dist(point p){return sqrt((x-p.x)*(x-p.x)+(y-p.y)*(y-p.y));}
-  point unit()
+  point unitVector()
   {
     //invalid if point is (0,0)
     double v=value();return point(x/v,y/v);
