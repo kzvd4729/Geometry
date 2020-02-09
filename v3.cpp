@@ -103,7 +103,7 @@ struct polygoan
   */
   vector<point>convexHull()
   {
-    sort(p.begin(),p.end());int n=p.size(),top=0;
+    sort(p.begin(),p.end());int n=p.size(),top=0;//polygoan are changed
     vector<point>hull,stck(n+10);
     for(int i=n-1;i>=0;i--)
     {
