@@ -131,4 +131,11 @@ struct polygoan
     if(hull.size()>1)hull.pop_back();
     return hull;
   }
+  double hullArea()
+  {
+    vector<point>h=convexHull();double ret=0;
+    int n=h.size();
+    for(int i=1;i<n;i++)ret+=(h[i]-h[0])^(h[(i+1)%n]-h[0]);
+    return abs(ret/2.0);//signed, positive for cw
+  }
 };
