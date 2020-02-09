@@ -108,17 +108,23 @@ struct polygoan
     for(int i=n-1;i>=0;i--)
     {
       stck[++top]=p[i];//>=0 to omit straight line point;
-      if(((stck[top-1]-stck[top-2])^(stck[top]-stck[top-2]))>=0)
-        stck[top-1]=stck[top],top--;
-      else break;
+      while(top>2)
+      {
+        if(((stck[top-1]-stck[top-2])^(stck[top]-stck[top-2]))>=0)
+          stck[top-1]=stck[top],top--;
+        else break;
+      }
     }
     while(top>0)hull.push_back(stck[top--]);
     for(int i=0;i<n;i++)
     {
-      stck[++top]=p[i];
-      if(((stck[top-1]-stck[top-2])^(stck[top]-stck[top-2]))>=0)
-        stck[top-1]=stck[top],top--;
-      else break; 
+      stck[++top]=p[i];//>=0 to omit straight line point;
+      while(top>2)
+      {
+        if(((stck[top-1]-stck[top-2])^(stck[top]-stck[top-2]))>=0)
+          stck[top-1]=stck[top],top--;
+        else break;
+      } 
     }
     top--;
     while(top>0)hull.push_back(stck[top--]);
