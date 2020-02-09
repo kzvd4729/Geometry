@@ -1,9 +1,3 @@
-#include<bits/stdc++.h>
-#define long long long
-using namespace std;
-const int N=1e6,inf=1e9;
-
-
 #define setp(a) cout<<setprecision(a)<<fixed
 const double eps=1e-9,pi=acos(-1.0);
 
@@ -132,12 +126,3 @@ struct polygoan
     return hull;
   }
 };
-
-
-int main()
-{
-  ios_base::sync_with_stdio(0);cin.tie(0);
-  
-
-  return 0;
-}
