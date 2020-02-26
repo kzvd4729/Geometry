@@ -151,6 +151,7 @@ struct polygon
   }
   //return 1 for inside, 0 for on and -1 for outside
   //point is ccw oriented with no three collinear point
+  //obviously use integer
   int inConvex(point p)
   {
     int n=h.size();assert(n>=3);////////////
