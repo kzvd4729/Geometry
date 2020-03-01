@@ -113,10 +113,10 @@ struct polygon
   after omitting straight line point. for random input it is N^(1/3);
   returns counter-clock-wise, a path, not closed circuit
   */
-  vector<point>convexHull()
+  void convexHull()
   {
     sort(p.begin(),p.end());int n=p.size(),top=0;//polygon are changed
-    vector<point>hull,stck(n+10);
+    vector<point>stck(n+10);
     for(int i=n-1;i>=0;i--)
     {
       stck[++top]=p[i];//>=0 to omit straight line point;
@@ -127,7 +127,7 @@ struct polygon
         else break;
       }
     }
-    while(top>0)hull.push_back(stck[top--]);
+    while(top>0)h.push_back(stck[top--]);
     for(int i=0;i<n;i++)
     {
       stck[++top]=p[i];//>=0 to omit straight line point;
@@ -139,9 +139,8 @@ struct polygon
       } 
     }
     top--;
-    while(top>0)hull.push_back(stck[top--]);
-    if(hull.size()>1)hull.pop_back();
-    return hull;
+    while(top>0)h.push_back(stck[top--]);
+    if(h.size()>1)h.pop_back();
   }
   double hullArea(){
     vector<point>h=convexHull();double ret=0;
@@ -159,7 +158,7 @@ struct polygon
     while(hi-lo>1)
     {
       int md=(lo+hi)/2;
-      if(((h[md]-h[0])^(p-h[0]))>0.0)lo=md;
+      if(((h[md]-h[0])^(p-h[0]))>0)lo=md;//carefull
       else hi=md;
     }
     bool in=triangle(h[0],h[lo],h[hi]).inTriangle(p);
