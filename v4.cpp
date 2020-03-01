@@ -149,8 +149,9 @@ struct polygon
     while(top>0)h.push_back(stck[top--]);
     if(h.size()>1)h.pop_back();
   }
-  double hullArea(){
-    vector<point>h=convexHull();double ret=0;
+  double hullArea()
+  {
+    convexHull();double ret=0;
     int n=h.size();
     for(int i=1;i<n;i++)ret+=(h[i]-h[0])^(h[(i+1)%n]-h[0]);
     return abs(ret/2.0);//signed, positive for cw
