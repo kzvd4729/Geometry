@@ -45,7 +45,7 @@ double degToRed(double d){return d*pi/180.0;}
 double modifiedatan2(point p)//clockwise full angle with positive x axis
 {
   double ang=atan2(p.y,p.x);if(ang<0)ang+=pi+pi;//carefull
-  return radtodeg(ang);//deg return 
+  return radToDeg(ang);//deg return 
 }
 struct line
 {
