@@ -149,7 +149,7 @@ struct polygon
     while(top>0)h.push_back(stck[top--]);
     if(h.size()>1)h.pop_back();
   }
-  double hullArea()
+  double hullArea()//can be used for polygon area too
   {
     convexHull();double ret=0;
     int n=h.size();
