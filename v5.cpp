@@ -84,12 +84,33 @@ struct segment
       return true;//precision 
     return false;
   }
+  int segmentIntersect(segment sg)
+  {
+    int s1,s2,s3,s4;
+    int d1=sgn(s1=(b-a)^(sg.a-a)),d2=sgn(s2=(b-a)^(sg.b-a));
+    int d3=sgn(s3=(sg.b-sg.a)^(a-sg.a)),d4=sgn(s4=(sg.b-sg.a)^(b-sg.a));
+    if((d1^d2)==-2&&(d3^d4)==-2)return 1;
+    else if(d1==0&&sgn((a-sg.a)*(b-sg.a))<=0)return 2;
+    else if(d2==0&&sgn((a-sg.b)*(b-sg.b))<=0)return 2;
+    else if(d3==0&&sgn((sg.a-a)*(sg.b-a))<=0)return 2;
+    else if(d4==0&&sgn((sg.a-b)*(sg.b-b))<=0)return 2;
+    return 0;
+  }
   //this is a very bad way to do this
   double segmentToPointDist(point p)
   {
     line l,r;l.makeLine(a,b);r=l.perpendicular(p);
     double ret=min(a.dist(p),b.dist(p));
     if(onLine(l.intersection(r)))ret=l.pointDist(p);
+    return ret;
+  }
+  double segmentSegmentDist(segment sg)
+  {
+    if(segmentIntersect(sg))return 0;
+    double ret=segmentToPointDist(sg.a);
+    ret=min(ret,segmentToPointDist(sg.b));
+    ret=min(ret,sg.segmentToPointDist(a));
+    ret=min(ret,sg.segmentToPointDist(b));
     return ret;
   }
 };
