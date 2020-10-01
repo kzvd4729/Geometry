@@ -42,7 +42,7 @@ struct point
 };
 double radToDeg(double r){return r*180.0/pi;}
 double degToRed(double d){return d*pi/180.0;}
-double modifiedatan2(point p)//clockwise full angle with positive x axis
+double modifiedatan2(point p)//counter-clockwise full angle with positive x axis
 {
   double ang=atan2(p.y,p.x);if(ang<0)ang+=pi+pi;//carefull
   return radToDeg(ang);//deg return 
